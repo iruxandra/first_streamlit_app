@@ -11,5 +11,3 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭Build Your On Fruit Smoothie🥝🍇')
 
 
-
-streamlit.header('\N{racing car}Ralph is cute\N{racing car}')
