@@ -1,6 +1,6 @@
 import streamlit
 import snowflake.connector
-import pandas
+import pandas as pd
 import requests
 from urllib.error import URLError
 
@@ -16,7 +16,7 @@ streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭Build Your On Fruit Smoothie🥝🍇')
 
 
-my_fruit_list = pandas.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
+my_fruit_list = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 streamlit.dataframe(my_fruit_list)
 
 #New section to display fruityvice api response
@@ -38,7 +38,7 @@ streamlit.dataframe(my_fruit_list)
 #create a function
 def get_fruityvice_data(this_fruit_choice):
   fruitvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
 
 #New section to display fruityvice api response
@@ -51,6 +51,7 @@ try:
   else:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
+
     
 except URLError as e:
   streamlit.error()
