@@ -1,6 +1,6 @@
 import streamlit
 import snowflake.connector
-import pandas as pd
+import pandas 
 import requests
 from urllib.error import URLError
 
@@ -43,7 +43,7 @@ try:
     streamlit.error('Please select a fruit to get information.')
   else:
     fruitvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     streamlit.dataframe(fruityvice_normalized)
     
 except URLError as e:
