@@ -34,6 +34,7 @@ streamlit.dataframe(my_fruit_list)
 # #output it the screen as a table
 # streamlit.dataframe(fruityvice_normalized)
 
+
 #New section to display fruityvice api response
 
 streamlit.header('Fruityvice Fruit Advice!')
